@@ -35,7 +35,9 @@ const VehicleSelection = () => {
     }
     setError(null); // for Clear previous errors
   
-    fetch('http://localhost:3000/api/start-simulation', {
+    // fetch('http://localhost:3000/api/start-simulation',
+    fetch('https://yocket-back-end-production.up.railway.app/api/start-simulation',
+     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ vehicles: { cop1: selectedVehicleCop1, cop2: selectedVehicleCop2 } }),

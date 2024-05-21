@@ -8,7 +8,9 @@ const ResultPage = () => {
   const { result } = location.state;
   let [resData,setresData]=useState()
   useEffect(()=>{
-   fetch('http://localhost:3000/result', {
+  //  fetch('http://localhost:3000/result',
+  fetch('https://yocket-back-end-production.up.railway.app/result',
+    {
       // method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       
@@ -58,48 +60,3 @@ const ResultPage = () => {
  
 export default ResultPage;
  
- 
-//i had thought logice for finding the capturingCop another way also
-// const ResultPage = () => {
-//   const navigate = useNavigate();
-//   const location = useLocation();
-//   const { result } = location.state;
- 
-// Function to determine which cop catches the fugitive based on distances
-//   const determineCapturingCop = (fugitiveDistance, copDistances) => {
-//     let minDistance = Infinity;
-//     let capturingCop = '';
- 
-//     // Iterate through cop distances to find the closest one to the fugitive
-//     for (const [copName, copDistance] of Object.entries(copDistances)) {
-//       const distanceDifference = Math.abs(fugitiveDistance - copDistance);
-//       if (distanceDifference < minDistance) {
-//         minDistance = distanceDifference;
-//         capturingCop = copName;
-//       }
-//     }
- 
-//     return capturingCop;
-//   };
- 
-//   // Determine capturing cop
-//   const capturingCop = determineCapturingCop(result.fugitiveDistance, result.copDistances);
- 
-//   // Determine if the fugitive was captured
-//   const isCaptured = capturingCop !== '';
- 
-//   return (
-//     <div className="result-page-container">
-//       <h2 className="result-page-title">Simulation Result</h2>
- 
-//       {isCaptured ? (
-//         <p className="result-text">Fugitive captured by {capturingCop}!</p>
-//       ) : (
-//         <p className="result-text">Fugitive escaped!</p>
-//       )}
-//       <button onClick={() => navigate('/SimulationComponent')} className="result-page-button">Restart</button>
-//     </div>
-//   );
-// };
- 
-// export default ResultPage;
